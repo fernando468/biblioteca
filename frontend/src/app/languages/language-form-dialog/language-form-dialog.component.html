@@ -1,0 +1,11 @@
+<form #form="ngForm" (ngSubmit)="onSubmit()" mat-dialog-content>
+  <p>Cadastrar Idioma</p>
+  <mat-form-field appearance="outline">
+    <mat-label>Idioma</mat-label>
+    <input matInput matInput name="language" [(ngModel)]="language.name" required>
+  </mat-form-field>
+  <div style="display: flex; justify-content: space-evenly;" mat-dialog-actions>
+    <button mat-raised-button (click)="onNoClick($event)" color="warn">Cancelar</button>
+    <button [disabled]="form.invalid" mat-raised-button color="primary" >Salvar</button>
+  </div>
+</form>

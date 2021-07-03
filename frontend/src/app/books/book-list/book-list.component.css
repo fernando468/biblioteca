@@ -1,0 +1,30 @@
+.menu {
+  width: 80%;
+  margin-bottom: 30px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px 0 0;
+  margin-bottom: 30px;
+  min-height: 210px;
+  width: 80%;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  justify-content: center;
+}
+
+img {
+  width: 170px;
+  min-height: 210px;
+}
+
+.mat-card-actions {
+  margin-left: 0px;
+}

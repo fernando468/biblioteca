@@ -1,0 +1,11 @@
+<form #form="ngForm" style="padding-bottom: 25px;" (ngSubmit)="onSubmit()" mat-dialog-content>
+  <p>Cadastrar categoria</p>
+  <mat-form-field appearance="outline">
+    <mat-label>Categoria</mat-label>
+    <input matInput matInput name="category" [(ngModel)]="category.name" required>
+  </mat-form-field>
+  <div style="display: flex; justify-content: space-evenly;" mat-dialog-actions>
+    <button mat-raised-button (click)="onNoClick($event)" color="warn">Cancelar</button>
+    <button [disabled]="form.invalid" mat-raised-button color="primary" >Salvar</button>
+  </div>
+</form>

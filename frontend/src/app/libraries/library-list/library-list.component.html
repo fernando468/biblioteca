@@ -1,0 +1,23 @@
+<div class="container">
+  <app-sidebar [showSubMenuLibrary]="true"></app-sidebar>
+  <div class="content">
+    <app-header></app-header>
+    <div class="menu">
+      <a routerLink="/biblioteca/form" mat-raised-button color="primary">Novo Biblioteca</a>
+    </div>
+    <mat-card *ngFor="let library of libraries" class="card">
+      <div style="display: flex; flex-direction: column; margin-left: 30px; justify-content: center;">
+        <mat-card-header class="flex">
+          <mat-card-title>{{library.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p><strong>CEP: </strong>{{library.cep}}</p>
+          <p><strong>Endereço: </strong>{{library.address}} {{library.number &&
+            library.number.toString().concat(",")}}
+            {{library.city}} - {{library.neighborhood}}</p>
+        </mat-card-content>
+      </div>
+    </mat-card>
+    <mat-paginator [length]="pageable.totalElements" [pageSize]="5" (page)="handlePage($event)"></mat-paginator>
+  </div>
+</div>

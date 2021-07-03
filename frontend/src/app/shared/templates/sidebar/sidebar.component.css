@@ -1,0 +1,75 @@
+.side-container {
+  position: fixed;
+  height: 100vh;
+  min-width: 256px;
+}
+
+.side-container .side-sidenav {
+  user-select: none;
+  background-color: var(--background);
+}
+
+.side-container .side-sidenav .header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  margin-top: 15px;
+}
+
+.side-container .side-sidenav .header h1 {
+  font-size: 26px;
+}
+
+.side-container .side-sidenav .header .icon {
+  font-size: 46px;
+}
+
+.side-container .side-sidenav .list {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-container .side-sidenav .list .item {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-container .side-sidenav .list .item p {
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  height: 35px;
+  margin-left: 10px;
+}
+
+.side-container .side-sidenav .list .item a {
+  display: flex;
+  align-items: center;
+  height: 35px;
+}
+
+.side-container .side-sidenav .list .item .icon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  height: 35px;
+  margin-left: 10px;
+}
+
+/*
+.mat-button, .mat-raised-button {
+  background-color: var(--color-primary);
+  color: var(--grey-text);
+  box-shadow: none;
+  display: flex;
+}
+
+.mat-raised-button:not(.mat-button-disabled):active:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+} */
+
+.menu-active {
+  color: var(--blue-secondary);
+}

@@ -1,0 +1,58 @@
+<div class="container">
+  <app-sidebar></app-sidebar>
+  <div class="content">
+    <app-header></app-header>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <h1>Consultar Empréstimos</h1>
+      <mat-form-field class="input-primary" appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select [(value)]="statusSelected">
+          <mat-option [value]="''">Todos</mat-option>
+          <mat-option *ngFor="let status of statusList" [value]="status.value">
+            {{status.label}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="input-primary" style="margin-left: 5px; margin-right: 5px;" appearance="outline">
+        <mat-label>CPF</mat-label>
+        <input matInput name="cpf" [(ngModel)]="user.cpf" #cpf="ngModel" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Buscar</button>
+    </form>
+
+    <mat-accordion>
+      <mat-expansion-panel style="margin-bottom: 10px; width: 960px;" (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false" *ngFor="let loan of loans" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{loan.customer?.name}}
+          </mat-panel-title>
+          <mat-panel-description [class.done]="loan.status === 'Devolvido' || loan.status === 'Cancelado'"
+            [class.pending]="loan.status === 'Pendente'" [class.overdue]="loan.status === 'Em atraso'">
+            {{loan.status}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <strong>Prazo Inicial: </strong>
+        <p>{{loan.dateStart}}</p>
+
+        <strong>Prazo Final: </strong>
+        <p>{{loan.dateEnd}}</p>
+
+        <strong>Biblioteca: </strong>
+        <p>{{loan.library.name}}</p>
+
+        <strong>Livro: </strong>
+        <p>{{loan.book.title}}</p>
+
+        <div *ngIf="loan.status !== 'Devolvido'">
+          <button mat-raised-button *ngIf="loan.status === 'Pendente'" (click)="onFinish(loan.id)"
+            style="margin-right: 10px;" color="primary">Finalizar</button>
+          <button mat-raised-button *ngIf="loan.status === 'Pendente' && loan.dateStart === ''"
+            (click)="onAccept(loan.id)" style="margin-right: 10px; background-color: var(--green-primary); color: var(--white);"
+            color="success">Aceitar</button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

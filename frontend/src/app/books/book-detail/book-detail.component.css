@@ -1,0 +1,39 @@
+.content {
+  width: 100%;
+}
+
+.content .detail {
+  color: var(--text);
+  font-size: 20px;
+  width: 866px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.content .detail .infos h1 {
+  font-size: 32px;
+}
+
+.content .detail .infos {
+  display: flex;
+  flex-direction: column;
+  width: 746px;
+  margin-left: 35px;
+}
+
+.content .detail img {
+  width: 340px;
+  height: 460px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+p {
+  font-weight: 300;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+span {
+  font-weight: 500;
+}

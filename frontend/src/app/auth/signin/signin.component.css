@@ -1,0 +1,22 @@
+.container img {
+  width: 60%;
+  height: 100vh;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 100vh;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+}
+
+.input-primary {
+  width: 80%;
+}
+
+/* ::ng-deep .mat-button-wrapper {
+  color:var(--white);
+} */

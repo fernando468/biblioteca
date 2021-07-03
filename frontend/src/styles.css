@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: var(--background-light);
+}
+
+:root {
+  --red-primary: #F1304D;
+  --green-primary: #1e9b1a;
+  --yellow-primary: #b1a82f;
+  --blue-primary: #3f51b5;
+  --background: #212D3A;
+  --text: #646D78;
+  --blue-secondary: #23D3E5;
+  --background-light: #FAFAFA;
+  --disabled: #979797;
+  --grey-text: #a8a4a4;
+  --white: #FFFFFF;
+}
+
+a {
+  text-decoration: none;
+  color: var(--grey-text);
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+app-sidebar {
+  height: 100%;
+  width: 256px;
+}
+
+app-header {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+button:hover, a:hover {
+  cursor: pointer;
+}

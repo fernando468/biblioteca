@@ -1,0 +1,25 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  width: 50%;
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+form h1 {
+  font-size: 26px;
+}
+
+.input-primary {
+  width: 622px;
+}
+
+@media screen and (max-width: 1510px) {
+  form {
+    width: 80%;
+  }
+}

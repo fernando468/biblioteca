@@ -1,0 +1,27 @@
+<div class="container">
+  <app-sidebar [showSubmenuBook]="true"></app-sidebar>
+  <div class="content">
+    <app-header></app-header>
+    <div class="detail">
+      <div style="display: flex; justify-content: center;">
+        <img *ngIf="book.file.fileName" src="{{apiUrlImg}}/uploads/{{book.file.fileName}}" alt="{{book.title}}">
+        <div class="infos">
+          <h1>{{book.title}}</h1>
+          <span>{{ book.authors.length > 1 ? 'Autores(as):' : 'Autor(a):' }}</span>
+          <p *ngFor="let author of book.authors">{{author.name}}</p>
+          <p><span>Idioma: </span>{{book.language}}</p>
+          <p><span>Genero: </span>{{book.category}}</p>
+          <p><span>Ano de Publicação: </span>{{book.yearOfPublication}}</p>
+          <p><span>Total de páginas: </span>{{book.totalPages}}</p>
+          <p><span>Editora: </span>{{book.publishingCompany}}</p>
+          <p><span>ISBN: </span>{{book.isbn}}</p>
+        </div>
+      </div>
+      <div class="infos" style="margin: 0px;">
+        <p><span>Sinopse: </span>{{book.synopsis}}</p>
+        <span style="margin-bottom: 5px;">Disponibilidade: </span>
+        <p style="margin-bottom: 5px;" *ngFor="let library of book.libraries">{{library.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>

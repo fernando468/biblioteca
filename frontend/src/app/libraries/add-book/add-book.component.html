@@ -1,0 +1,33 @@
+<div class="container">
+  <app-sidebar [showSubMenuLibrary]="true"></app-sidebar>
+  <div class="content">
+    <app-header></app-header>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <h1>Adicionar Livro na Biblioteca</h1>
+      <mat-form-field class="input-primary" appearance="outline">
+        <mat-label>Titulo</mat-label>
+        <input type="text" aria-label="Idioma" matInput [matAutocomplete]="bookList" name="bookForm"
+          [(ngModel)]="book.title" (ngModelChange)="onChange($event)" #bookForm="ngModel">
+
+          <mat-autocomplete autoActiveFirstOption #bookList="matAutocomplete">
+          <mat-option (onSelectionChange)="onSelectionChanged(book)" *ngFor="let book of books"
+            [value]="book.title">
+            {{book.title}}
+          </mat-option>
+
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field class="input-primary" appearance="outline">
+        <mat-label>Biblioteca</mat-label>
+        <mat-select [(value)]="librarySelected">
+          <mat-option *ngFor="let library of libraries" [value]="library.id">
+            {{library.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Confirmar</button>
+    </form>
+  </div>
+</div>

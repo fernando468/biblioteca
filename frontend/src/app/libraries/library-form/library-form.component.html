@@ -1,0 +1,45 @@
+<div class="container">
+  <app-sidebar [showSubMenuLibrary]="true"></app-sidebar>
+  <div class="content">
+    <div style="width: 100%; margin-bottom: 30px;">
+      <app-header></app-header>
+    </div>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <h1>Cadastrar nova Biblioteca</h1>
+      <mat-form-field class="input-primary" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput name="name" [(ngModel)]="library.name" #name="ngModel" required>
+      </mat-form-field>
+
+      <div class="input-group">
+        <mat-form-field appearance="outline">
+          <mat-label>CEP</mat-label>
+          <input matInput name="cep" (ngModelChange)="changeCep($event)" [(ngModel)]="library.cep" required>
+        </mat-form-field>
+
+        <mat-form-field style="margin-left: 5px; margin-right: 5px;" appearance="outline">
+          <mat-label>Endereço</mat-label>
+          <input matInput name="address" [(ngModel)]="library.address" #address="ngModel" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Número</mat-label>
+          <input matInput name="number" [(ngModel)]="library.number" #number="ngModel" required>
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex;">
+        <mat-form-field style="width: 308px; margin-right: 5px;" appearance="outline">
+          <mat-label>Bairro</mat-label>
+          <input matInput name="bairro" [(ngModel)]="library.neighborhood" #bairro="ngModel" required>
+        </mat-form-field>
+
+        <mat-form-field style="width: 308px" appearance="outline">
+          <mat-label>Cidade</mat-label>
+          <input matInput name="city" [(ngModel)]="library.city" #city="ngModel" required>
+        </mat-form-field>
+      </div>
+      <button [disabled]="form.invalid" mat-raised-button color="primary">Salvar</button>
+    </form>
+  </div>
+</div>

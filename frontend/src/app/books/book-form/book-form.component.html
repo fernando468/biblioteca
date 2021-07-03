@@ -1,0 +1,112 @@
+<div class="container">
+  <app-sidebar [showSubmenuBook]="true"></app-sidebar>
+  <div class="content">
+    <app-header></app-header>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <h1>Cadastrar novo livro</h1>
+      <mat-form-field class="input-primary" appearance="outline">
+        <mat-label>Título</mat-label>
+        <input matInput name="title" [(ngModel)]="book.title" #title="ngModel" required>
+      </mat-form-field>
+
+      <div class="input-group">
+        <mat-form-field appearance="outline">
+          <mat-label>ISBN</mat-label>
+          <input matInput name="isbn" [(ngModel)]="book.isbn" #isbn="ngModel" required>
+        </mat-form-field>
+
+        <mat-form-field style="margin-left: 5px; margin-right: 5px;" appearance="outline">
+          <mat-label>Categoria</mat-label>
+          <mat-select [(value)]="book.genreId" required>
+            <mat-option *ngFor="let category of categories" [value]="category.id">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Idioma</mat-label>
+          <mat-select [(value)]="book.languageId" required>
+            <mat-option *ngFor="let language of languages" [value]="language.id">
+              {{language.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+
+      <div class="input-group">
+        <mat-form-field appearance="outline">
+          <mat-label>Ano de Lançamento</mat-label>
+          <input matInput name="yearOfPublication" [(ngModel)]="book.yearOfPublication" #yearOfPublication="ngModel"
+            required>
+        </mat-form-field>
+
+        <mat-form-field style="margin-left: 5px; margin-right: 5px;" appearance="outline">
+          <mat-label>Edição</mat-label>
+          <input matInput name="edition" [(ngModel)]="book.edition" #edition="ngModel" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Total de páginas</mat-label>
+          <input matInput name="yearOfPublication" [(ngModel)]="book.totalPages" #yearOfPublication="ngModel" required>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field class="input-primary" appearance="outline">
+        <mat-label>Editora</mat-label>
+        <input matInput name="publishingCompany" [(ngModel)]="book.publishingCompany" #publishingCompany="ngModel"
+          required>
+      </mat-form-field>
+
+      <mat-list style="width: 622px;" role="list">
+        <mat-list-item style="margin-bottom: 26px; display: flex; justify-content: space-between;" role="listitem"
+          *ngFor="let author of allAuthorsSelected">
+          {{author.name}}
+          <a mat-mini-fab color="warn" aria-label="Adicionar" (click)="removeAuthor(author)">
+            <mat-icon>delete</mat-icon>
+          </a>
+        </mat-list-item>
+      </mat-list>
+
+      <div class="input-primary" style="display: flex; justify-content: space-between;">
+        <mat-form-field style="width: 550px" appearance="outline">
+          <mat-label>Autor</mat-label>
+          <input type="text" aria-label="Idioma" matInput [matAutocomplete]="authorsList" name="authorsForm"
+            [(ngModel)]="authorSelected.name" #authorsForm="ngModel">
+          <mat-autocomplete autoActiveFirstOption #authorsList="matAutocomplete">
+            <mat-option (onSelectionChange)="onSelectionAuthorChanged(author)" *ngFor="let author of authors"
+              [value]="author.name">
+              {{author.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <a style="margin-top: 12px;" mat-mini-fab color="primary" aria-label="Adicionar"
+          (click)="addAuthor(authorsForm)">
+          <mat-icon>add</mat-icon>
+        </a>
+      </div>
+
+      <mat-form-field style="width: 622px;" appearance="outline">
+        <mat-label>Sinopse</mat-label>
+        <textarea matInput name="synopsis" [(ngModel)]="book.synopsis" #synopsis="ngModel"></textarea>
+      </mat-form-field>
+      <div class="upload-file">
+        <div style="width: 200px">
+          <img *ngIf="imgURL" [src]="imgURL">
+        </div>
+
+        <input style="display: none;" type="file" id="file" name="image" multiple accept="image/*"
+          (change)="createPreviewImage($event)" required>
+
+        <div style="display: flex; margin-left: 50px; align-items: center;">
+          <label for="file" class="mat-focus-indicator mat-raised-button mat-button-base mat-primary ">Selecione uma
+            imagem</label>
+        </div>
+      </div>
+      <button
+        [disabled]="form.invalid || allAuthorsSelected.length === 0 || book.languageId === '' || book.genreId === '' || imgURL === undefined "
+        style="margin-top: 30px;" mat-raised-button color="primary">Salvar</button>
+    </form>
+  </div>
+</div>

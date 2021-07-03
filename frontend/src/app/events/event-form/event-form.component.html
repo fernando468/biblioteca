@@ -1,0 +1,38 @@
+<div class="container">
+  <app-sidebar></app-sidebar>
+  <div class="content">
+    <app-header></app-header>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <h1>Cadastrar novo Evento</h1>
+
+      <mat-form-field class="input-primary" appearance="outline">
+        <mat-label>Título</mat-label>
+        <input matInput name="title" [(ngModel)]="event.title" #title="ngModel" required>
+      </mat-form-field>
+
+      <div class="input-group">
+        <mat-form-field style="width: 308px;" appearance="outline">
+          <mat-label>Selecione uma data</mat-label>
+          <input name="date" [min]="minDate" [(ngModel)]="dateSelected" #date="ngModel" matInput [matDatepicker]="picker" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+
+        <mat-form-field style="width: 308px;" appearance="outline">
+          <mat-label>Hora</mat-label>
+          <input type="time" matInput name="hour" [(ngModel)]="event.hour" #hour="ngModel" required>
+        </mat-form-field>
+      </div>
+      <mat-form-field class="input-primary" appearance="outline">
+        <mat-label>Biblioteca</mat-label>
+        <mat-select [(value)]="event.libraryId" required>
+          <mat-option *ngFor="let library of libraries" [value]="library.id">
+            {{library.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button [disabled]="form.invalid || event.libraryId === ''" mat-raised-button color="primary">Salvar</button>
+    </form>
+  </div>
+</div>

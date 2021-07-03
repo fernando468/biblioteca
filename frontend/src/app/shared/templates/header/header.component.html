@@ -1,0 +1,11 @@
+<header class="header">
+  <div  iv style="width: 180px; margin-right: 30px;">
+    <mat-menu #menu="matMenu">
+      <button (click)="signOut()" style="width: 180px;" mat-menu-item>Sair</button>
+    </mat-menu>
+    <div class="menu" mat-button [matMenuTriggerFor]="menu">
+      {{name}}
+      <img style="margin-left: 10px;" src="https://ui-avatars.com/api/?name={{name}}&&background=23D3E5&color=fff" alt="{{name}}">
+    </div>
+  </div>
+</header>

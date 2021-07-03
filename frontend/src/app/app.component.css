@@ -1,0 +1,12 @@
+::ng-deep .warn {
+  background: var(--red-primary) !important;
+}
+
+::ng-deep .success {
+  background-color: var(--green-primary);
+}
+
+:host /deep/ .mat-card-header-text {
+  margin: 0;
+  margin-top: 10px;
+}

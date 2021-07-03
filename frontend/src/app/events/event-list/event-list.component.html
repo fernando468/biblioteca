@@ -1,0 +1,26 @@
+<div class="container">
+  <app-sidebar></app-sidebar>
+  <div class="content">
+    <app-header></app-header>
+    <div class="menu">
+      <a routerLink="/biblioteca/evento/form" mat-raised-button color="primary">Novo Evento</a>
+    </div>
+    <mat-card *ngFor="let event of events" class="card">
+      <div class="item">
+        <mat-card-header class="flex">
+          <mat-card-title>{{event.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p><strong>Data: </strong>{{event.date}}</p>
+          <p><strong>Hora: </strong>{{event.hour}}</p>
+          <p><strong>Biblioteca: </strong>{{event.library?.name}}</p>
+          <p><strong>Status: </strong>{{event.status}}</p>
+        </mat-card-content>
+      </div>
+      <mat-card-actions *ngIf="event.status === 'ABERTO'">
+        <button (click)="changeStatus(event)" mat-raised-button color="warn">Finalizar</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-paginator [length]="pageable.totalElements" [pageSize]="5" (page)="handlePage($event)"></mat-paginator>
+  </div>
+</div>

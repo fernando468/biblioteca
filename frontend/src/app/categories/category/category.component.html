@@ -1,0 +1,19 @@
+<div class="container">
+  <app-sidebar></app-sidebar>
+  <div class="content">
+    <app-header></app-header>
+    <div class="menu">
+      <button (click)="openDialog()" mat-raised-button color="primary">Novo Categoria</button>
+    </div>
+
+    <div style="display: flex; justify-content: flex-start; width: 80%; z-index: -1; flex-wrap: wrap;">
+      <mat-card *ngFor="let category of genres" class="card" style="margin-right: 10px;">
+        <div style="display: flex; align-items: center; height: 50px;">
+          <mat-card-header class="flex">
+            <mat-card-title>{{category.name}}</mat-card-title>
+          </mat-card-header>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

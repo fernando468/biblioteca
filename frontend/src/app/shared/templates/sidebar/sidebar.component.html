@@ -1,0 +1,70 @@
+<mat-sidenav-container class="side-container" autosize>
+  <mat-sidenav class="side-sidenav" style="min-width: 256px;" #sidenav mode="side" opened="true">
+    <div class="header">
+      <img src="../../../../assets/Logo.png" alt="Logo">
+      <h1 class="title">Biblioteca</h1>
+    </div>
+    <div class="list">
+      <div class="item">
+        <p>Livro</p>
+        <a routerLinkActive="menu-active" routerLink="/livro/form">
+          <mat-icon class="icon" [inline]="true" aria-hidden="false" aria-label="icon add">
+            add</mat-icon>
+          Cadastrar Livro
+        </a>
+        <a routerLinkActive="menu-active" routerLink="/livro/lista">
+          <mat-icon class="icon" [inline]="true" aria-hidden="false" aria-label="icon list">
+            list</mat-icon>
+          Listar Livros
+        </a>
+        <a routerLinkActive="menu-active" routerLink="/categoria">
+          <mat-icon class="icon" [inline]="true" aria-hidden="false" aria-label="icon category">
+            category</mat-icon>
+          Categoria
+        </a>
+        <a routerLinkActive="menu-active" routerLink="/idioma">
+          <mat-icon class="icon" [inline]="true" aria-hidden="false" aria-label="icon language">
+            language</mat-icon>
+          Idioma
+        </a>
+      </div>
+
+      <div class="item">
+        <p>Biblioteca</p>
+        <a routerLinkActive="menu-active" routerLink="/biblioteca/form">
+          <mat-icon class="icon" [inline]="true" aria-hidden="false" aria-label="icon add">
+            add</mat-icon>
+          Cadastrar Biblioteca
+        </a>
+        <a routerLinkActive="menu-active" routerLink="/biblioteca/lista">
+          <mat-icon class="icon" [inline]="true" aria-hidden="false" aria-label="icon list">
+            list</mat-icon>
+          Listar Bibliotecas
+        </a>
+        <a routerLinkActive="menu-active" routerLink="/biblioteca/adicionar-livro">
+          <mat-icon class="icon" [inline]="true" aria-hidden="false" aria-label="icon category">
+            library_books</mat-icon>
+          Adicionar Livro na Biblioteca
+        </a>
+        <a routerLinkActive="menu-active" routerLink="/biblioteca/evento/form">
+          <mat-icon class="icon" [inline]="true" aria-hidden="false" aria-label="icon add">
+            add</mat-icon>
+          Cadastrar Evento
+        </a>
+        <a routerLinkActive="menu-active" routerLink="/biblioteca/evento/lista">
+          <mat-icon class="icon" [inline]="true" aria-hidden="false" aria-label="icon list">
+            list</mat-icon>
+          Listar Eventos
+        </a>
+      </div>
+      <div class="item">
+        <p>Emprestimos</p>
+        <a routerLinkActive="menu-active" routerLink="/emprestimo">
+          <mat-icon class="icon" [inline]="true" aria-hidden="false" aria-label="icon calendar_today">
+            manage_search</mat-icon>
+          Consultar Empréstimo
+        </a>
+      </div>
+    </div>
+  </mat-sidenav>
+</mat-sidenav-container>
