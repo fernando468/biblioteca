@@ -1,12 +1,6 @@
 # 📚 Biblioteca
 Projeto realizado com o intuito de aprender sobre java, spring boot e angular. A ideia do projeto foi retirada da AEP do 1o semestre de ADS na UniCesumar.
 
-Link para acessar: https://painel-biblioteca.netlify.app/
-
-OBS: Pode ocorrer de demorar para realizar o login ou realizar outra ação. Isso acontece porque o heroku desliga o servidor depois de um tempo.
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/274ba30b-d7e6-46a1-942b-65e2b4a44b4d/deploy-status)](https://app.netlify.com/sites/angry-neumann-6aaf9f/deploys)
-
 # 💻 Tecnologias
 
 - [Java 11](https://jdk.java.net/) - Backend
